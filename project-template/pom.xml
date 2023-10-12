@@ -95,6 +95,12 @@
             <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark-util-collection</artifactId>
+            <version>0.62.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

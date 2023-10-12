@@ -11,7 +11,7 @@ public class Test2 {
         int[] tests = {0, 3, 10, 23, 1422, 123456};
 
         for(int test:tests){
-            System.out.println(test + " -> " + Task2.countDigits(test));
+            System.out.println(test + "\t->\t" + Task2.countDigits(test));
         }
 
     }

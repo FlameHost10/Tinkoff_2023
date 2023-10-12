@@ -10,7 +10,7 @@ public class Test4 {
         String[] tests = {"12345", "hTsii  s aimex dpus rtni.g", "badce", "iSpmelt set"};
 
         for(String test:tests){
-            System.out.println(test + " -> " + Task4.fixString((test)));
+            System.out.println(test + "\t->\t" + Task4.fixString((test)));
         }
 
     }
