@@ -12,6 +12,8 @@ public class Test3 {
             {{3, 1}, {4, 0}},
             {{9, 9, 8}, {8, 9}},
             {{1, 2, 3, 4}, {2, 3}},
+            {{}, {}},
+            {{}, {1, 2}}
         };
 
         for(var test:tests){
@@ -19,6 +21,10 @@ public class Test3 {
         }
     }
     private static String toString(int[] arr){
+        if(arr.length == 0){
+            return "[]";
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for(int i = 0; i < arr.length - 1; i++){

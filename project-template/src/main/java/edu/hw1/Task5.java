@@ -2,16 +2,11 @@ package edu.hw1;
 
 public class Task5 {
     public static boolean isPalindromeDescendant(int numb){
-        int correct_orientation = numb;
-        int reverse_orientation = 0;
-        int len_numb = 0;
-        while (correct_orientation > 0) {
-            reverse_orientation = reverse_orientation * 10 + correct_orientation % 10;
-            correct_orientation /= 10;
-            len_numb++;
-        }
+        String correct_orientation = String.valueOf(numb);
+        String reverse_orientation = new StringBuilder(correct_orientation).reverse().toString();
+        int len_numb = correct_orientation.length();
 
-        if(numb == reverse_orientation){
+        if(correct_orientation.equals(reverse_orientation)){
             return true;
         }
         else{

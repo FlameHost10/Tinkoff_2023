@@ -26,9 +26,6 @@ public class Task6 {
             increasing += (i > 0) ?(int) Math.pow(10, i) * arr_digit[i] : arr_digit[i];
         }
         int difference = decreasing_numb - increasing;
-        if(difference == 6174){
-            return 1;
-        }
         return 1 + countK(difference);
 
     }

@@ -2,16 +2,14 @@ package edu.hw1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class Test4 {
-    @Test
-    @DisplayName("Исправление строки")
-    void correcting_incorrect_string() {
-        String[] tests = {"12345", "hTsii  s aimex dpus rtni.g", "badce", "iSpmelt set"};
-
-        for(String test:tests){
-            System.out.println(test + "\t->\t" + Task4.fixString((test)));
-        }
-
+    @ParameterizedTest(name = "Исправление строки")
+    @ValueSource(strings = {"12345", "hTsii  s aimex dpus rtni.g", "badce", "iSpmelt set"})
+    void correcting_incorrect_string(String s) {
+        System.out.println(s + "\t->\t" + Task4.fixString(s));
     }
+
 }
