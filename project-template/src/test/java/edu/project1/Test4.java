@@ -9,10 +9,10 @@ public class Test4 {
     @Test
     @DisplayName("тест метода, который проверяет слово на наличие буквы (тест на проигрыш)")
     void guess_letter() throws IOException {
-        String s = Project1.word_change();
+        String s = Project1.wordChange();
         Gallows gallows = new Gallows(s);
         for(int i = 0;i < 5; i++){
-            gallows.guess_letter("z");
+            gallows.guessLetter("z");
         }
 
     }

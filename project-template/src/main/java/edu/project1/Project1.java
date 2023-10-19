@@ -8,28 +8,28 @@ import java.util.Scanner;
 
 public class Project1 {
     public static void run() throws IOException {
-        String word = word_change();
-        Gallows main_gallows = new Gallows(word);
+        String word = wordChange();
+        Gallows mainGallows = new Gallows(word);
         Scanner sc = new Scanner(System.in);
         boolean flag = true; //Продолжаем игру?
 
         System.out.println("The game has begun. Word length: " + 5);
         System.out.println("If you want to finish the game, click '!'");
         while(flag){
-            String user_input = sc.next();
-            flag = main_gallows.guess_letter(user_input);
+            String userInput = sc.next();
+            flag = mainGallows.guessLetter(userInput);
         }
     }
 
-    public static String word_change() throws IOException {
-        int len_file = 5;
-        int ind_word = (int)(Math.random() * (len_file));
+    public static String wordChange() throws IOException {
+        int lenFile = 5;
+        int indWord = (int)(Math.random() * (lenFile));
         String word;
-        FileReader reader = new FileReader("C:\\Users\\User\\JavaProjects\\Tinkoff_2023\\project-template\\src\\main\\java\\edu\\project1\\words");
+        FileReader reader = new FileReader("C:\\Users\\User\\JavaProjects\\Tinkoff_2023\\project-template\\src\\main\\resources\\project1\\words");
         BufferedReader br = new BufferedReader(reader);
-        while(ind_word > 0){
+        while(indWord > 0){
             br.readLine();
-            ind_word--;
+            indWord--;
         }
         word = br.readLine();
         return word;

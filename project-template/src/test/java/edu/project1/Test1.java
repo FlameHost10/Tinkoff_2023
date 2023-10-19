@@ -9,7 +9,7 @@ public class Test1 {
     @DisplayName("Тест генерации слова")
     void word_change() throws IOException {
         for(int i = 0; i < 10; i++) {
-            System.out.println(Project1.word_change());
+            System.out.println(Project1.wordChange());
         }
     }
 }

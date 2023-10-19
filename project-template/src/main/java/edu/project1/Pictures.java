@@ -4,34 +4,59 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Pictures {
-    private final ArrayList<String[]> array_pictures = new ArrayList<>();
+    private final ArrayList<String> array_pictures = new ArrayList<>();
 
     public Pictures(){
-        String[] first = new String[]
-            {"       ", "       ","       ","       ","       "," *     ","* *    "};
+        String first = "       \n"
+                    + "       \n"
+                    + "       \n"
+                    + "       \n"
+                    + "       \n"
+                    + " *     \n"
+                    + "* *    \n";
+
         array_pictures.add(first);
 
-        String[] second = new String[]
-            {" *      ", " *      ", " *      ", " *      ", " *      "," *     ","* *    "};
+        String second = " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + "* *    \n";
         array_pictures.add(second);
 
-        String[] third = new String[]
-            {" ***** ", " *   * "," *      "," *      "," *      "," *     ","* *    "};
+        String third = " ***** \n"
+                    + " *   * \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + "* *    \n";
         array_pictures.add(third);
 
-        String[] fourth = new String[]
-            {" ***** ", " *   * "," *   @ "," *      "," *      "," *     ","* *    "};
+        String fourth = " ***** \n"
+                    + " *   * \n"
+                    + " *   @ \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + " *     \n"
+                    + "* *    \n";
         array_pictures.add(fourth);
 
 
-        String[] fifth = new String[]
-            {" ***** ", " *   * "," *   @ "," *  -!-"," *  / \\"," *     ","* *    "};
+        String fifth = " ***** \n"
+                    + " *   * \n"
+                    + " *   @ \n"
+                    + " *  -!-\n"
+                    + " *  / \\\n"
+                    + " *     \n"
+                    + "* *    \n";
         array_pictures.add(fifth);
     }
 
     public void output(int ind){
-        for(var elem: array_pictures.get(ind)){
-            System.out.println(elem);
-        }
+        System.out.println(array_pictures.get(ind));
+
     }
 }
