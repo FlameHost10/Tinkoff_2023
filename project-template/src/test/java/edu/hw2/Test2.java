@@ -3,6 +3,7 @@ package edu.hw2;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import static org.assertj.core.api.ClassBasedNavigableIterableAssert.assertThat;
 
 public class Test2 {
     static Arguments[] rectangles() {
@@ -17,7 +18,6 @@ public class Test2 {
     void rectangleArea(Task2.Rectangle rect) {
         rect.setWidth(20);
         rect.setHeight(10);
-        System.out.println(rect.area() == 200.0);
 
         //assertThat(rect.area()).isEqualTo(200.0);
     }
