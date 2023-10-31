@@ -8,14 +8,15 @@ import static edu.hw4.AnimalList.getAnimals;
 public class Test12 {
 
     @Test
-    @DisplayName("животные, у которых вес больше роста")
-    void bigAndBitingTest() {
+    @DisplayName("количество животных, у которых вес больше роста")
+    void weightMoreHeightTest() {
 
         Integer NumberDesiredAnimals = Task12.weightMoreHeight(getAnimals());
 
         for(var animal: getAnimals()){
             System.out.println(animal);
         }
+
 
         System.out.println();
 
