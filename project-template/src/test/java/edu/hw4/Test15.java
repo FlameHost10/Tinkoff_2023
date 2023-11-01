@@ -21,7 +21,7 @@ public class Test15 {
 
         System.out.println();
 
-
+        System.out.println("lower bound 3 and upper bound 10");
         for(var type: desiredAnimalsTypeMap.keySet()){
             System.out.println(type + " -> " + desiredAnimalsTypeMap.get(type));
         }

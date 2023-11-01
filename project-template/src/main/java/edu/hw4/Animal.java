@@ -4,9 +4,9 @@ public record Animal(
     String name,
     Type type,
     Sex sex,
-    int age,
-    int height,
-    int weight,
+    int age, // year
+    int height, //cm
+    int weight, //gram
     boolean bites
 ) {
     enum Type {

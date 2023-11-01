@@ -20,7 +20,7 @@ public class Test8 {
 
         System.out.println();
 
-        System.out.println("heaviest animal is below k cm: " + desiredAnimal);
+        System.out.println("heaviest animal is below 20 cm: " + desiredAnimal);
 
     }
 }

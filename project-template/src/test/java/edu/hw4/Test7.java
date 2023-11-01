@@ -12,7 +12,7 @@ public class Test7 {
     @Test
     @DisplayName("K-е самое старое животное")
     void oldestAnimalByNumberTest() {
-        int numbFirst = 2, numbSecond = 5;
+        int numbFirst = 2, numbSecond = 6;
 
 
         Animal oldestAnimalByNumberFirst = Task7.oldestAnimalByNumber(getAnimals(), numbFirst);

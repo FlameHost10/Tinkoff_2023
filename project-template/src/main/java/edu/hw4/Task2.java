@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Task2 {
     public static List<Animal> sortWeight(List<Animal> animals){
-        animals.sort(new Task1.MyComparator());
+        animals.sort(new MyComparator());
         return animals;
     }
 

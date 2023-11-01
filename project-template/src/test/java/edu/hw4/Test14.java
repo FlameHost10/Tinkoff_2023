@@ -20,7 +20,7 @@ public class Test14 {
 
         System.out.println();
 
-        System.out.println("Is there a dog in the list with a height of more than k cm: " + desiredAns);
+        System.out.println("Is there a dog in the list with a height of more than 110 cm: " + desiredAns);
 
     }
 }
