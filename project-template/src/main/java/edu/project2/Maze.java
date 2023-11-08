@@ -3,9 +3,7 @@ package edu.project2;
 import java.util.List;
 
 public class Maze {
-    private static final String COLOR_RED = "\u001B[31m";
     private static final String COLOR_GREEN = "\u001B[32m";
-    private static final String COLOR_BLUE = "\u001B[34m";
 
     private int width;
     private int height;
@@ -14,12 +12,78 @@ public class Maze {
     private Point exit;
     private List<Point> decision = null;
 
-
-    //Creators
     public Maze(int width, int height, GeneratorType type){
         switch (type){
             case PERFECT_GENERATOR -> perfectGenerator(width, height);
         }
+    }
+    public enum GeneratorType{
+        PERFECT_GENERATOR
+    }
+
+    //Print
+    public String toStringWithDecision(){
+        if(decision == null){
+            return COLOR_GREEN + "there is no solution yet";
+        }
+        StringBuilder mazeString = new StringBuilder();
+        for(int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if(decision.contains(new Point(i, j, Point.PointType.PASSAGE))){
+                    mazeString.append(COLOR_GREEN + "+");
+                }
+                else{
+                    mazeString.append(maze[i][j].type());
+                }
+            }
+            mazeString.append("\n");
+        }
+        return mazeString.toString();
+    }
+    public String toString(){
+        StringBuilder mazeString = new StringBuilder();
+        for(int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                mazeString.append(maze[i][j].type());
+            }
+            mazeString.append("\n");
+        }
+        return mazeString.toString();
+    }
+
+    //Setters and getters
+    public Point[][] getMaze() {
+        return maze;
+    }
+    public Point getEntrance() {
+        return entrance;
+    }
+    public Point getExit() {
+        return exit;
+    }
+    public void setDecision(List<Point> decision) {
+        this.decision = decision;
+    }
+
+
+
+
+    //auxiliary functions
+    public boolean suitableCoordinate(int x, int y){
+        return (this.height > x && x >= 0) && (this.width > y && y >= 0);
+    }
+    private static int rnd(int min, int max) {
+        max -= min;
+        return (int) (Math.random() * ++max) + min;
+    }
+    private boolean putPassage(int i, int j){
+        return (maze[i - 1][j - 1].type() == Point.PointType.WALL && maze[i - 1][j + 1].type() == Point.PointType.WALL && maze[i - 1][j].type() == Point.PointType.PASSAGE) ||
+            (maze[i][j - 1].type() == Point.PointType.WALL && maze[i - 1][j].type() == Point.PointType.WALL) ||
+            (maze[i][j - 1].type() == Point.PointType.WALL && maze[i - 1][j + 1].type() == Point.PointType.WALL);
+    }
+    private boolean putPassagePenultimateRow(int i, int j){
+        return (maze[i - 1][j - 1].type() == Point.PointType.WALL || maze[i - 1][j].type() == Point.PointType.WALL
+            || maze[i - 1][j + 1].type() == Point.PointType.WALL || maze[i + 1][j].type() == Point.PointType.PASSAGE);
     }
     private void perfectGenerator(int width, int height){
         this.width = width;
@@ -49,14 +113,10 @@ public class Maze {
         //other points
         for(int i = 1; i < height - 1; i++){
             for(int j = 1; j < width - 1; j++){
-                if((maze[i - 1][j - 1].type() == Point.PointType.WALL && maze[i - 1][j + 1].type() == Point.PointType.WALL && maze[i - 1][j].type() == Point.PointType.PASSAGE) ||
-                    (maze[i][j - 1].type() == Point.PointType.WALL && maze[i - 1][j].type() == Point.PointType.WALL) ||
-                    (maze[i][j - 1].type() == Point.PointType.WALL && maze[i - 1][j + 1].type() == Point.PointType.WALL)){
+                if(putPassage(i, j)){
                     maze[i][j] = new Point(i, j, Point.PointType.PASSAGE);
                 }
-                else if((i == height - 2) &&
-                    (maze[i - 1][j - 1].type() == Point.PointType.WALL || maze[i - 1][j].type() == Point.PointType.WALL || maze[i - 1][j + 1].type() == Point.PointType.WALL
-                    || maze[i + 1][j].type() == Point.PointType.PASSAGE)){
+                else if((i == height - 2) && putPassagePenultimateRow(i, j)){
                     maze[i][j] = new Point(i, j, Point.PointType.PASSAGE);
                 }
                 else{
@@ -70,71 +130,6 @@ public class Maze {
                 }
             }
         }
-    }
-    public enum GeneratorType{
-        PERFECT_GENERATOR
-    }
-
-
-    //Print
-    public String toStringWithDecision(){
-        if(decision == null){
-            return COLOR_GREEN + "there is no solution yet";
-        }
-        StringBuilder mazeString = new StringBuilder();
-        for(int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if(decision.contains(new Point(i, j, Point.PointType.PASSAGE))){
-                    mazeString.append(COLOR_GREEN + "+");
-                }
-                else if (maze[i][j].type() == Point.PointType.WALL) {
-                    mazeString.append(COLOR_RED + "#");
-                } else {
-                    mazeString.append(COLOR_BLUE + ".");
-                }
-            }
-            mazeString.append("\n");
-        }
-        return mazeString.toString();
-    }
-    public String toString(){
-        StringBuilder mazeString = new StringBuilder();
-        for(int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (maze[i][j].type() == Point.PointType.WALL) {
-                    mazeString.append(COLOR_RED + "#");
-                } else {
-                    mazeString.append(COLOR_BLUE + ".");
-                }
-            }
-            mazeString.append("\n");
-        }
-        return mazeString.toString();
-    }
-
-
-    //auxiliary functions
-    private static int rnd(int min, int max) {
-        max -= min;
-        return (int) (Math.random() * ++max) + min;
-    }
-    public boolean suitableCoordinate(int x, int y){
-        return (this.height > x && x >= 0) && (this.width > y && y >= 0);
-    }
-
-
-    //Getters and Setters
-    public Point[][] getMaze() {
-        return maze;
-    }
-    public Point getEntrance() {
-        return entrance;
-    }
-    public Point getExit() {
-        return exit;
-    }
-    public void setDecision(List<Point> decision) {
-        this.decision = decision;
     }
 
 }

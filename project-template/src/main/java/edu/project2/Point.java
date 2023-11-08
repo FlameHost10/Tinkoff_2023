@@ -3,10 +3,27 @@ package edu.project2;
 import java.util.Objects;
 
 public record Point(int height, int width, PointType type) {
+    private static final String COLOR_RED = "\u001B[31m";
+    private static final String COLOR_BLUE = "\u001B[34m";
+
     public enum PointType{
-        PASSAGE,
-        WALL
+        PASSAGE(COLOR_BLUE + "."),
+        WALL(COLOR_RED + "#");
+
+        private String displaySymbol;
+
+        PointType(String displaySymbol){
+            this.displaySymbol = displaySymbol;
+        }
+
+        @Override
+        public String toString() {
+            return displaySymbol;
+        }
     }
+
+
+
 
     @Override public boolean equals(Object o) {
         if (this == o) return true;
