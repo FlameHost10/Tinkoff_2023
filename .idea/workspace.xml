@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f624905-1db0-4fea-baf5-59ea68e06666" name="Changes" comment="" />
+    <list default="true" id="1f624905-1db0-4fea-baf5-59ea68e06666" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +59,8 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -76,6 +80,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="Test4.guess_letter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="essentials" />
       <extension name="coverage">
@@ -87,6 +92,7 @@
       <option name="PACKAGE_NAME" value="edu.project1" />
       <option name="MAIN_CLASS_NAME" value="edu.project1.Test4" />
       <option name="METHOD_NAME" value="guess_letter" />
+
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,12 +108,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.project1" />
       <option name="MAIN_CLASS_NAME" value="edu.project1.Test5" />
+
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Test6.guess_letter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="essentials" />
       <extension name="coverage">
         <pattern>
@@ -116,7 +124,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.project1" />
+
       <option name="MAIN_CLASS_NAME" value="edu.project1.Test6" />
+
       <option name="METHOD_NAME" value="guess_letter" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -125,11 +135,13 @@
     </configuration>
     <recent_temporary>
       <list>
+
         <item itemvalue="JUnit.Test5" />
         <item itemvalue="JUnit.Test6.guess_letter" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Test4.guess_letter" />
         <item itemvalue="JUnit.Test2" />
+
       </list>
     </recent_temporary>
   </component>
